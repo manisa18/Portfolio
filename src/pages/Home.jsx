@@ -1,6 +1,6 @@
 import React from "react";
 import coder from "../image/coder1.svg";
-// import recommendationEngine from "../image/recommendationEngine.svg";
+import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import HomePage from "../component/HomePage";
 import ContactMe from "../component/ContactMe";
@@ -8,15 +8,17 @@ import ProjectsList from "../component/ProjectsList";
 const Home = () => {
   const skillsetsStyle = {
     "& > div": {
-      padding: { md: "20px", sm: "15px", xs: "10px" },
-      borderRadius: { md: 5, sm: 10, xs: 5 },
+      padding: { md: "10px", sm: "10px", xs: "10px 5px" },
+      margin: "2px",
+      borderRadius: { sm: 5, xs: 5 },
       backgroundColor: "rgba(128, 128, 128, 0.16)",
-      width: { md: "100%", sm: "20%", xs: "20%" },
+      width: { md: "100%", sm: "100", xs: "100%" },
       textAlign: "center",
       fontSize: "18px",
       fontWeight: "500",
     },
   };
+
   return (
     <Box>
       <HomePage />
@@ -93,18 +95,34 @@ const Home = () => {
             gap: 4,
             flexDirection: "column",
           }}>
-          <Box sx={{ display: "flex", gap: 4, ...skillsetsStyle }}>
-            <Box>C</Box>
-            <Box>C++</Box>
-            <Box>Java</Box>
-            <Box>Python</Box>
-          </Box>
-          <Box sx={{ display: "flex", gap: 4, ...skillsetsStyle }}>
-            <Box>HTML</Box>
-            <Box>CSS</Box>
-            <Box>JavaScript</Box>
-            <Box>SQL</Box>
-          </Box>
+          <Grid container spacing={{ xs: 2, sm: 4 }}>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>C</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>C++</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>Java</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>Python</Box>
+            </Grid>
+          </Grid>
+          <Grid container spacing={{ xs: 2, sm: 4 }}>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>HTML</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>CSS</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>JavaScript</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>SQL</Box>
+            </Grid>
+          </Grid>
         </Box>
         <Box
           sx={{
@@ -122,18 +140,34 @@ const Home = () => {
             gap: 4,
             flexDirection: "column",
           }}>
-          <Box sx={{ display: "flex", gap: 4, ...skillsetsStyle }}>
-            <Box>ReactJs</Box>
-            <Box>NodeJs</Box>
-            <Box>MUI</Box>
-            <Box>MySQL</Box>
-          </Box>
-          <Box sx={{ display: "flex", gap: 4, ...skillsetsStyle }}>
-            <Box>MongoDB</Box>
-            <Box>ExpressJs</Box>
-            <Box>Git</Box>
-            <Box>Github</Box>
-          </Box>
+          <Grid container spacing={{ xs: 2, sm: 4 }}>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>ReactJs</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>NodeJs</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>MUI</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>MySQL</Box>
+            </Grid>
+          </Grid>
+          <Grid container spacing={{ xs: 2, sm: 4 }}>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>MongoDB</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>ExpressJs</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>Git</Box>
+            </Grid>
+            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
+              <Box>Github</Box>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
       <Box
