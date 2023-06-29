@@ -72,7 +72,7 @@ const Contact = () => {
               },
             }}
             onClick={() => {
-              window.location.href = "mailto:your-email@example.com";
+              window.location.href = "mailto:basak.manisha94@gmail.com";
             }}>
             Contact Me
           </Button>
