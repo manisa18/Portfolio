@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Box,
@@ -25,7 +25,13 @@ const Navbar = () => {
     setMenuBtn(false);
     window.location.href = path;
   };
-
+  useEffect(() => {
+    if (menuBtn) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+  }, [menuBtn]);
   return (
     <Router>
       <div>
