@@ -8,7 +8,7 @@ const HomePage = () => {
   const theme = useTheme();
   const handleResume = () => {
     const resumeUrl =
-      "https://drive.google.com/file/d/1tgh88SBUqk5W7m76lnO5_8PDkUeyOc49/view?usp=drive_link";
+      "https://drive.google.com/file/d/1qk84go6Vrt-wdAJHgjnzdG8bKyDZeclw/view?usp=sharing";
     window.open(resumeUrl);
   };
   const handleButtonClick = (path) => {
