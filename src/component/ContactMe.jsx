@@ -30,7 +30,13 @@ const ContactMe = () => {
           sx={{
             backgroundColor: "#DC5F00",
             "&:hover": {
+              fontWeight: "600",
               backgroundColor: "#999999",
+              color: "#000000",
+              transform: "scale(1.05)",
+            },
+            "&:active": {
+              transform: "scale(1)", // Shrinks when clicked
             },
           }}
           onClick={() => {

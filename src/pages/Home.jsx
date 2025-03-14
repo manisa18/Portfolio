@@ -1,27 +1,13 @@
 import React from "react";
-import coder from "../image/coder1.svg";
-import { Grid } from "@mui/material";
-import Box from "@mui/material/Box";
+import Manisa from "../image/Manisa.jpeg";
+import { Box } from "@mui/material";
 import HomePage from "../component/HomePage";
 import ContactMe from "../component/ContactMe";
 import ProjectsList from "../component/ProjectsList";
+import Skills from "../component/Skills";
 const Home = () => {
-  const skillsetsStyle = {
-    "& > div": {
-      padding: { md: "10px", sm: "10px", xs: "10px 5px" },
-      margin: "2px",
-      borderRadius: { sm: 5, xs: 5 },
-      backgroundColor: "rgba(128, 128, 128, 0.16)",
-      width: { md: "100%", sm: "100", xs: "100%" },
-      textAlign: "center",
-      fontSize: "18px",
-      fontWeight: "500",
-    },
-  };
-
-  return (
-    <Box>
-      <HomePage />
+  const Prologue = () => {
+    return (
       <Box
         sx={{
           display: "flex",
@@ -35,141 +21,121 @@ const Home = () => {
         }}>
         <Box
           sx={{
-            padding: { xs: "10%", sm: "15%", md: "15% 5%" },
+            padding: { xs: "10% 10% 5%", sm: "15% 15% 10%", md: "15% 5% 10%" },
             width: { sm: "70%", md: "50%" },
           }}>
           <Box
             sx={{
               fontSize: "40px",
-              fontWeight: "700",
-              paddingBottom: "20px",
+              fontWeight: "500",
               color: "#DC5F00",
+              fontFamily: "'Pacifico', cursive",
             }}>
-            The Prologue <span>&#x1F44B;</span>
+            The Prologue <span className="wave">&#x1F44B;</span>
           </Box>
-          <Box sx={{ fontSize: "25px", paddingBottom: "10px" }}>
-            I'm Manisa Basak, a Full Stack Developer and self taught graphic
-            designer.
+          <Box sx={{ fontSize: "20px", paddingBottom: "10px" }}>
+            I’m Manisa, a passionate Software Developer Engineer at Highradius,
+            crafting innovative solutions in web development.
           </Box>
-          <Box sx={{ fontSize: "25px", paddingBottom: "10px" }}>
-            I worked on various frameworks. I am also a Machine Learning
-            Enthusiast.
+          <Box sx={{ fontSize: "20px", paddingBottom: "10px" }}>
+            A finalist at Bajaj HackRx 3.0 and a problem-solver at heart, I
+            thrive on challenges that push creativity and logic. Recognized
+            among the Best Freshers of 2021, I’m driven by continuous learning,
+            mentorship, and a vision to make a lasting impact in tech.
           </Box>
-          <Box sx={{ fontSize: "25px", paddingBottom: "10px" }}>
-            thrive as a problem solver, transforming challenges into triumphs as
-            a competitive programmer.
+          <Box sx={{ fontSize: "20px", paddingBottom: "10px" }}>
+            Let me know if you’d like any tweaks!
           </Box>
         </Box>
         <Box
-          sx={{ padding: { md: "10% 0" }, width: { sm: "100%", md: "50%" } }}>
-          <img width="100%" src={coder} alt="coder"></img>
+          sx={{
+            position: "relative",
+            padding: { md: "10% 0" },
+            width: { sm: "100%", md: "50%" },
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}>
+          <Box
+            sx={{
+              position: "absolute",
+              width: "150px",
+              height: "150px",
+              backgroundColor: "transparent",
+              clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+              background: "linear-gradient(135deg, #DC5F00, #FF9F45)",
+              top: "10%",
+              left: "5%",
+              animation: "moveTriangle1 4s infinite ease-in-out",
+            }}
+          />
+          <Box
+            sx={{
+              position: "absolute",
+              width: "120px",
+              height: "120px",
+              backgroundColor: "transparent",
+              clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+              background: "linear-gradient(135deg, #FF9F45, #DC5F00)",
+              bottom: "10%",
+              right: "5%",
+              animation: "moveTriangle2 5s infinite alternate ease-in-out",
+            }}
+          />
+
+          <img
+            src={Manisa}
+            alt="Manisa"
+            style={{
+              width: "20rem",
+              height: "20rem",
+              borderRadius: "50%",
+              objectFit: "cover",
+              boxShadow: "0px 10px 30px rgba(220, 95, 0, 0.5)",
+              animation: "floatImage 3s infinite ease-in-out",
+            }}
+          />
         </Box>
       </Box>
-      <Box
-        sx={{
-          backgroundColor: "#000000",
-          color: "#ffff",
-          padding: { xs: "5%", md: "5%", sm: "15%" },
-        }}>
-        <Box
-          sx={{
-            fontSize: "42px",
-            fontWeight: "700",
-            paddingBottom: "20px",
-            color: "#DC5F00",
-          }}>
-          Skillsets <span>&#x1F4BB;</span>
-        </Box>
-        <Box
-          sx={{
-            fontSize: "30px",
-            fontWeight: "500",
-            paddingBottom: "20px",
-          }}>
-          Languages
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "inherit",
-            gap: 4,
-            flexDirection: "column",
-          }}>
-          <Grid container spacing={{ xs: 2, sm: 4 }}>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>C</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>C++</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>Java</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>Python</Box>
-            </Grid>
-          </Grid>
-          <Grid container spacing={{ xs: 2, sm: 4 }}>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>HTML</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>CSS</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>JavaScript</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>SQL</Box>
-            </Grid>
-          </Grid>
-        </Box>
-        <Box
-          sx={{
-            paddingTop: "40px",
-            fontSize: "30px",
-            fontWeight: "500",
-            paddingBottom: "20px",
-          }}>
-          Frameworks
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "inherit",
-            gap: 4,
-            flexDirection: "column",
-          }}>
-          <Grid container spacing={{ xs: 2, sm: 4 }}>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>ReactJs</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>NodeJs</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>MUI</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>MySQL</Box>
-            </Grid>
-          </Grid>
-          <Grid container spacing={{ xs: 2, sm: 4 }}>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>MongoDB</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>ExpressJs</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>Git</Box>
-            </Grid>
-            <Grid item xs={6} sm={3} sx={{ ...skillsetsStyle }}>
-              <Box>Github</Box>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
+    );
+  };
+
+  return (
+    <Box>
+      <HomePage />
+      <style>
+        {`
+            @keyframes wave {
+              0% { transform: rotate(5deg); }
+              25% { transform: rotate(-20deg); } 
+              50% { transform: rotate(5deg); }
+              75% { transform: rotate(-20deg); }
+              100% { transform: rotate(5deg); }
+            }
+            .wave {
+              display: inline-block;
+              animation: wave 1s infinite;
+            }
+            @keyframes floatImage {
+              0% { transform: translateY(0px); }
+              50% { transform: translateY(-10px); }
+              100% { transform: translateY(0px); }
+            }
+            @keyframes moveTriangle1 {
+              0% { transform: translateY(0px) rotate(0deg); }
+              50% { transform: translateY(-20px) rotate(10deg); }
+              100% { transform: translateY(0px) rotate(0deg); }
+            }
+            @keyframes moveTriangle2 {
+              0% { transform: translateX(0px) rotate(0deg); }
+              50% { transform: translateX(-20px) rotate(-10deg); }
+              100% { transform: translateX(0px) rotate(0deg); }
+            }
+         `}
+      </style>
+      <Prologue />
+
+      <Skills />
       <Box
         sx={{
           display: "flex",
@@ -182,10 +148,11 @@ const Home = () => {
         <Box
           sx={{
             fontSize: "42px",
-            fontWeight: "700",
+            fontWeight: "500",
             paddingBottom: "20px",
             color: "#DC5F00",
             textAlign: "center",
+            fontFamily: "'Pacifico', cursive",
           }}>
           Projects
         </Box>

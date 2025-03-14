@@ -67,8 +67,14 @@ const Contact = () => {
               borderRadius: 10,
 
               padding: "10px 30px",
+              transition: "all 0.3s ease-in-out",
               "&:hover": {
                 backgroundColor: "#999999",
+                color: "#000000",
+                transform: "scale(1.05)",
+              },
+              "&:active": {
+                transform: "scale(1)", // Shrinks when clicked
               },
             }}
             onClick={() => {
@@ -77,14 +83,32 @@ const Contact = () => {
             Contact Me
           </Button>
           <Link
-            sx={{ color: "#ffff" }}
+            sx={{
+              color: "#ffff",
+              "&:hover": {
+                color: "#999999",
+                transform: "scale(1.05)",
+              },
+              "&:active": {
+                transform: "scale(1)", // Shrinks when clicked
+              },
+            }}
             href="https://www.linkedin.com/in/manisa-basak-6625301b7/"
             target="_blank"
             rel="noopener">
             <LinkedInIcon fontSize="inherit" sx={{ fontSize: "40px" }} />
           </Link>
           <Link
-            sx={{ color: "#ffff" }}
+            sx={{
+              color: "#ffff",
+              "&:hover": {
+                color: "#999999",
+                transform: "scale(1.05)",
+              },
+              "&:active": {
+                transform: "scale(1)", // Shrinks when clicked
+              },
+            }}
             href="https://github.com/manisa18"
             target="_blank"
             rel="noopener">

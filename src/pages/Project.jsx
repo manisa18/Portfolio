@@ -44,7 +44,7 @@ const Project = () => {
           sx={{ fontSize: "40px", fontWeight: "700", color: "#FFFF" }}>
           PROJECTS
         </Typography>
-        <Box sx={{ padding: "50px 5%" }}>
+        <Box sx={{ padding: "0px 10%" }}>
           <ProjectsList />
         </Box>
       </Box>

@@ -2,108 +2,149 @@ import React from "react";
 import { Box, Button } from "@mui/material";
 import recommendationEngine from "../image/recommendationEngine.svg";
 import podcast from "../image/podcast.svg";
-const ProjectsList = () => {
+
+const ProjectCard = ({ image, title, description, link }) => {
   return (
-    <div>
+    <Box
+      sx={{
+        perspective: "1000px", // Enables 3D flip effect
+        width: "300px",
+        height: "400px",
+        cursor: "pointer",
+        display: "flex",
+        justifyContent: "center", // Centers the card inside the flex container
+        alignItems: "center",
+        "&:hover .flip-container": {
+          transform: "rotateY(180deg)", // Flip when hovered
+        },
+      }}>
+      {/* Flip Container */}
       <Box
+        className="flip-container"
         sx={{
-          display: "flex",
-          gap: 2,
-          flexDirection: { sm: "row", xs: "column" },
+          width: "100%",
+          height: "100%",
+          transformStyle: "preserve-3d",
+          transition: "transform 0.6s ease-in-out",
+          transform: "rotateY(0deg)", // Default state
         }}>
-        <Box>
-          <Box backgroundColor="#DC5F00" sx={{ padding: "10px" }}>
-            <img
-              src={recommendationEngine}
-              alt="recommendationEngine"
-              style={{ maxWidth: "100%", paddingBottom: "20px" }}
-            />
-            <Box sx={{ fontSize: "30px", fontWeight: "500" }}>
-              Recommendation Engine
-            </Box>
-            <Box
-              sx={{
-                fontSize: "15px",
-                paddingTop: "15px",
-                textAlign: "justify",
-              }}>
-              This individual project is a content-based movie recommendation
-              engine. Using Pandas, NumPy, Scikit-learn, NLTK, and cosine
-              similarity in Python, it calculates similarity scores among movies
-              and recommends the top 5 similar movies. The recommendations are
-              displayed using Streamlit, providing an intuitive interface for
-              users to explore movie suggestions.
-            </Box>
-            <Box>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderColor: "#ffff",
-                  margin: "20px 0 10px",
-                  borderRadius: 10,
-                  color: "#ffff",
-                  "&:hover": {
-                    borderColor: "#000000",
-                    color: "#000000",
-                  },
-                }}
-                onClick={() => {
-                  window.open(
-                    "https://github.com/manisa18/movie-recommendation-engine"
-                  );
-                }}>
-                View Project
-              </Button>
-            </Box>
+        {/* Front Side - Image & Title Only */}
+        <Box
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            padding: "10px",
+            backgroundColor: "#DC5F00",
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            backfaceVisibility: "hidden",
+          }}>
+          <img
+            src={image}
+            alt={title}
+            style={{
+              width: "90%",
+              maxHeight: "70%",
+              borderRadius: "8px",
+            }}
+          />
+          <Box sx={{ fontSize: "24px", fontWeight: "600", paddingTop: "20px" }}>
+            {title}
           </Box>
         </Box>
-        <Box>
-          <Box backgroundColor="#DC5F00" sx={{ padding: "10px" }}>
-            <img
-              src={podcast}
-              alt="podcast"
-              style={{ maxWidth: "100%", paddingBottom: "20px" }}
-            />
-            <Box sx={{ fontSize: "30px", fontWeight: "500" }}>
-              Podcast Player
-            </Box>
-            <Box
-              sx={{
-                fontSize: "15px",
-                // paddingTop: "15px",
-                textAlign: "justify",
-                paddingTop: { md: "16px", sm: "55px" },
-              }}>
-              This is a group project, we are developing a web application for
-              podcast enthusiasts. Users can enjoy their favorite podcasts,
-              upload their own content, and create individual podcasts to share,
-              listen, and follow. The application is built using ReactJS,
-              Node.js, Express.js, MongoDB, and Material-UI (MUI) for a seamless and
-              visually appealing user experience.
-            </Box>
-            <Box>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderColor: "#ffff",
-                  margin: "20px 0 10px",
-                  borderRadius: 10,
-                  color: "#ffff",
-                  "&:hover": {
-                    borderColor: "#000000",
-                    color: "#000000",
-                  },
-                }}
-                onClick={() => {
-                  window.open("https://github.com/manisa18/flipr_podcast");
-                }}>
-                View Project
-              </Button>
-            </Box>
+
+        {/* Back Side - Title, Description & View Project Button */}
+        <Box
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#DC5F00",
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px",
+            textAlign: "center",
+            transform: "rotateY(180deg)",
+            backfaceVisibility: "hidden",
+          }}>
+          <Box
+            sx={{ fontSize: "24px", fontWeight: "600", paddingBottom: "20px" }}>
+            {title}
           </Box>
+          <Box
+            sx={{
+              fontSize: "14px",
+              textAlign: "justify",
+              paddingBottom: "15px",
+              px: "10px"
+            }}>
+            {description}
+          </Box>
+          <Button
+            variant="outlined"
+            sx={{
+              marginTop: "20px",
+              mx: "10px",
+              width: "100%",
+              borderColor: "#fff",
+              borderRadius: 10,
+              color: "#fff",
+              transition: "all 0.3s ease-in-out",
+              "&:hover": {
+                borderColor: "#000",
+                color: "#000",
+                transform: "scale(1.05)",
+              },
+            }}
+            onClick={() => window.open(link, "_blank")}>
+            View Project
+          </Button>
         </Box>
       </Box>
-    </div>
+    </Box>
+  );
+};
+
+const ProjectsList = () => {
+  const projects = [
+    {
+      image: recommendationEngine,
+      title: "Recommendation Engine",
+      description:
+        "This individual project is a content-based movie recommendation engine. Using Pandas, NumPy, Scikit-learn, NLTK, and cosine similarity in Python, it calculates similarity scores among movies and recommends the top 5 similar movies. The recommendations are displayed using Streamlit, providing an intuitive interface for users to explore movie suggestions.",
+      link: "https://github.com/manisa18/movie-recommendation-engine",
+    },
+    {
+      image: podcast,
+      title: "Podcast Player",
+      description:
+        "This is a group project where we developed a web application for podcast enthusiasts. Users can enjoy their favorite podcasts, upload content, and create individual podcasts to share, listen, and follow. The application is built using ReactJS, Node.js, Express.js, MongoDB, and MUI for a seamless user experience.",
+      link: "https://github.com/manisa18/flipr_podcast",
+    },
+  ];
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center", 
+        flexWrap: "wrap", 
+        gap: 4, 
+        padding: "40px",
+        minHeight: "100vh", 
+      }}>
+      {projects.map((project, index) => (
+        <ProjectCard key={index} {...project} />
+      ))}
+    </Box>
   );
 };
 
