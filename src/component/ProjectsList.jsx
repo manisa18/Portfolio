@@ -3,51 +3,114 @@ import { Box, Button } from "@mui/material";
 import recommendationEngine from "../image/recommendationEngine.svg";
 import podcast from "../image/podcast.svg";
 
-const ProjectCard = ({ image, title, description, link }) => (
-  <Box
-    sx={{
-      backgroundColor: "#DC5F00",
-      padding: "20px",
-      borderRadius: "10px",
-      textAlign: "center",
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-    }}>
-    <img
-      src={image}
-      alt={title}
-      style={{ maxWidth: "100%", paddingBottom: "20px" }}
-    />
-    <Box sx={{ fontSize: "30px", fontWeight: "500" }}>{title}</Box>
+const ProjectCard = ({ image, title, description, link }) => {
+  return (
     <Box
       sx={{
-        fontSize: "15px",
-        padding: "15px 10px",
-        textAlign: "justify",
-        flexGrow: 1,
-      }}>
-      {description}
-    </Box>
-    <Button
-      variant="outlined"
-      sx={{
-        borderColor: "#fff",
-        marginTop: "auto",
-        borderRadius: 10,
-        color: "#fff",
-        transition: "all 0.3s ease-in-out",
-        "&:hover": {
-          borderColor: "#000",
-          color: "#000",
-          transform: "scale(1.05)",
+        perspective: "1000px", // Enables 3D flip effect
+        width: "300px",
+        height: "400px",
+        cursor: "pointer",
+        display: "flex",
+        justifyContent: "center", // Centers the card inside the flex container
+        alignItems: "center",
+        "&:hover .flip-container": {
+          transform: "rotateY(180deg)", // Flip when hovered
         },
-      }}
-      onClick={() => window.open(link, "_blank")}>
-      View Project
-    </Button>
-  </Box>
-);
+      }}>
+      {/* Flip Container */}
+      <Box
+        className="flip-container"
+        sx={{
+          width: "100%",
+          height: "100%",
+          transformStyle: "preserve-3d",
+          transition: "transform 0.6s ease-in-out",
+          transform: "rotateY(0deg)", // Default state
+        }}>
+        {/* Front Side - Image & Title Only */}
+        <Box
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            padding: "10px",
+            backgroundColor: "#DC5F00",
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            backfaceVisibility: "hidden",
+          }}>
+          <img
+            src={image}
+            alt={title}
+            style={{
+              width: "90%",
+              maxHeight: "70%",
+              borderRadius: "8px",
+            }}
+          />
+          <Box sx={{ fontSize: "24px", fontWeight: "600", paddingTop: "20px" }}>
+            {title}
+          </Box>
+        </Box>
+
+        {/* Back Side - Title, Description & View Project Button */}
+        <Box
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#DC5F00",
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "20px",
+            textAlign: "center",
+            transform: "rotateY(180deg)",
+            backfaceVisibility: "hidden",
+          }}>
+          <Box
+            sx={{ fontSize: "24px", fontWeight: "600", paddingBottom: "20px" }}>
+            {title}
+          </Box>
+          <Box
+            sx={{
+              fontSize: "14px",
+              textAlign: "justify",
+              paddingBottom: "15px",
+              px: "10px"
+            }}>
+            {description}
+          </Box>
+          <Button
+            variant="outlined"
+            sx={{
+              marginTop: "20px",
+              mx: "10px",
+              width: "100%",
+              borderColor: "#fff",
+              borderRadius: 10,
+              color: "#fff",
+              transition: "all 0.3s ease-in-out",
+              "&:hover": {
+                borderColor: "#000",
+                color: "#000",
+                transform: "scale(1.05)",
+              },
+            }}
+            onClick={() => window.open(link, "_blank")}>
+            View Project
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
 const ProjectsList = () => {
   const projects = [
@@ -71,14 +134,15 @@ const ProjectsList = () => {
     <Box
       sx={{
         display: "flex",
-        gap: 2,
-        flexDirection: { sm: "row", xs: "column" },
-        alignItems: "stretch",
+        justifyContent: "space-between",
+        alignItems: "center", 
+        flexWrap: "wrap", 
+        gap: 4, 
+        padding: "40px",
+        minHeight: "100vh", 
       }}>
       {projects.map((project, index) => (
-        <Box key={index} sx={{ flex: 1 }}>
-          <ProjectCard {...project} />
-        </Box>
+        <ProjectCard key={index} {...project} />
       ))}
     </Box>
   );
