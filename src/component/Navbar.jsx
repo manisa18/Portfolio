@@ -57,6 +57,8 @@ const Navbar = () => {
           backgroundColor: "#000000",
           opacity: 0.9,
           top: 0,
+          left: 0,
+          width: "100vw", // Ensure full width
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
@@ -189,14 +191,15 @@ const Navbar = () => {
             position: "fixed",
             top: 0,
             left: 0,
-            width: "100%",
+            right: 0, // Ensure it spans the full screen
+            width: "100vw",
             height: "100vh",
             backgroundColor: "#000000",
             color: "#ffff",
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
+            flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
             zIndex: 5,
           }}>
           <Box
