@@ -18,15 +18,17 @@ const Home = () => {
             sm: "column",
             md: "row",
           },
+          width: "100%",
+          margin: 0,
         }}>
         <Box
           sx={{
-            padding: { xs: "10% 10% 5%", sm: "15% 15% 10%", md: "15% 5% 10%" },
+            padding: { xs: "15% 10%", sm: "15% 15% 10%", md: "15% 5% 10%" },
             width: { sm: "70%", md: "50%" },
           }}>
           <Box
             sx={{
-              fontSize: "40px",
+              fontSize: { xs: "1rem", md: "1.4rem" },
               fontWeight: "500",
               color: "#DC5F00",
               fontFamily: "'Pacifico', cursive",
@@ -53,6 +55,8 @@ const Home = () => {
             padding: { md: "10% 0" },
             width: { sm: "100%", md: "50%" },
             display: "flex",
+            marginTop: { xs: "10%", md: "0" },
+            marginBottom: { xs: "20%", md: "0" },
             justifyContent: "center",
             alignItems: "center",
           }}>

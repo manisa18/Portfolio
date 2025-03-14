@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import aboutme from "../image/aboutme.jpg";
 import ContactMe from "../component/ContactMe";
+import Manisa from "../image/Manisa.jpeg";
 import Skills from "../component/Skills";
 
 const AboutMe = () => {
@@ -19,7 +20,7 @@ const AboutMe = () => {
       <Box
         sx={{
           width: "100vw",
-          height: "50vh",
+          height: { xs: "30vh", md: "50vh" },
           display: "flex",
           justifyContent: "center",
         }}>
@@ -39,20 +40,24 @@ const AboutMe = () => {
         sx={{
           backgroundColor: "#000",
           width: "100%",
-          height: "auto",
-          padding: "10% 20%",
+          padding: { xs: "5% 10%", md: "10% 20%" },
           color: "#fff",
         }}>
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-around",
           }}>
           {/* Floating Image with Stylish Background */}
-          <Box sx={{ position: "relative", marginRight: "50px" }}>
-            {/* Floating Stylish Graphic */}
+          <Box
+            sx={{
+              position: "relative",
+              padding: { md: "5%" },
+              marginTop: { xs: "20%", md: "0" },
+              marginBottom: { xs: "15%", md: "0" },
+            }}>
             <Box
               sx={{
                 position: "absolute",
@@ -63,12 +68,12 @@ const AboutMe = () => {
                 filter: "blur(50px)",
                 animation: "float 4s ease-in-out infinite",
                 zIndex: 1,
+                transform: "translateX(-50%)",
               }}></Box>
 
-            {/* Floating Profile Image */}
             <img
-              src={aboutme}
-              alt="aboutme"
+              src={Manisa}
+              alt="manisa"
               style={{
                 width: "250px",
                 height: "250px",
@@ -83,11 +88,11 @@ const AboutMe = () => {
           </Box>
 
           {/* About Me Text */}
-          <Box sx={{ maxWidth: "700px" }}>
+          <Box sx={{ maxWidth: "700px", textAlign: "center" }}>
             <Typography
               variant="h1"
               sx={{
-                fontSize: "40px",
+                fontSize: { xs: "30px", md: "40px" },
                 fontWeight: "500",
                 color: "#DC5F00",
                 fontFamily: "'Pacifico', cursive",
@@ -98,7 +103,7 @@ const AboutMe = () => {
             <Typography
               variant="h3"
               sx={{
-                fontSize: "1.2rem",
+                fontSize: { xs: "1rem", md: "1.4rem" },
                 fontWeight: "200",
                 color: "#fff",
                 padding: "5% 2%",
@@ -164,7 +169,7 @@ const AboutMe = () => {
           display: "flex",
           backgroundColor: "#EEEEEE",
           color: "#000",
-          padding: "5%",
+          padding: { xs: "5%", md: "5% 10%" },
           width: "100vw",
           flexDirection: "column",
         }}>

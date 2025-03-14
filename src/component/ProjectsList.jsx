@@ -7,34 +7,36 @@ const ProjectCard = ({ image, title, description, link }) => {
   return (
     <Box
       sx={{
-        perspective: "1000px", // Enables 3D flip effect
-        width: "300px",
-        height: "400px",
+        perspective: "1200px", // Adds depth effect
+        width: { xs: "100%", sm: "300px" },
+        height: { xs: "400px", sm: "400px" },
         cursor: "pointer",
         display: "flex",
-        justifyContent: "center", // Centers the card inside the flex container
+        justifyContent: "center",
         alignItems: "center",
         "&:hover .flip-container": {
           transform: "rotateY(180deg)", // Flip when hovered
         },
       }}>
-      {/* Flip Container */}
       <Box
         className="flip-container"
         sx={{
+          position: "relative",
           width: "100%",
           height: "100%",
           transformStyle: "preserve-3d",
           transition: "transform 0.6s ease-in-out",
-          transform: "rotateY(0deg)", // Default state
+          transformOrigin: "center",
+          "&:hover": {
+            transform: "rotateY(0deg)", // Ensures smooth rotation without shifting
+          },
         }}>
-        {/* Front Side - Image & Title Only */}
+        {/* Front Side */}
         <Box
           sx={{
             position: "absolute",
             width: "100%",
             height: "100%",
-            padding: "10px",
             backgroundColor: "#DC5F00",
             borderRadius: "10px",
             display: "flex",
@@ -43,21 +45,29 @@ const ProjectCard = ({ image, title, description, link }) => {
             alignItems: "center",
             backfaceVisibility: "hidden",
           }}>
-          <img
-            src={image}
-            alt={title}
-            style={{
-              width: "90%",
-              maxHeight: "70%",
-              borderRadius: "8px",
-            }}
-          />
-          <Box sx={{ fontSize: "24px", fontWeight: "600", paddingTop: "20px" }}>
-            {title}
+          <Box sx={{ padding: "10px 10px 0" }}>
+            <img
+              src={image}
+              alt={title}
+              style={{
+                width: "100%",
+                maxHeight: "70%",
+                borderRadius: "8px",
+              }}
+            />
+            <Box
+              sx={{
+                fontSize: { xs: "18px", md: "22px" },
+                fontWeight: "600",
+                paddingTop: "15px",
+                textAlign: "center",
+              }}>
+              {title}
+            </Box>
           </Box>
         </Box>
 
-        {/* Back Side - Title, Description & View Project Button */}
+        {/* Back Side */}
         <Box
           sx={{
             position: "absolute",
@@ -67,45 +77,50 @@ const ProjectCard = ({ image, title, description, link }) => {
             borderRadius: "10px",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
-            padding: "20px",
             textAlign: "center",
             transform: "rotateY(180deg)",
             backfaceVisibility: "hidden",
           }}>
-          <Box
-            sx={{ fontSize: "24px", fontWeight: "600", paddingBottom: "20px" }}>
-            {title}
+          <Box sx={{ padding: "4rem 10px 0" }}>
+            <Box
+              sx={{
+                fontSize: { xs: "18px", md: "22px" },
+                fontWeight: "600",
+                padding: "10px 0",
+                textAlign: "center",
+              }}>
+              {title}
+            </Box>
+            <Box
+              sx={{
+                fontSize: { xs: "12px", md: "14px" },
+                textAlign: "justify",
+                padding: { xs: "5px", md: "10px" },
+                flex: 1,
+              }}>
+              {description}
+            </Box>
+            <Button
+              variant="outlined"
+              sx={{
+                marginTop: "10px",
+                width: { xs: "100%", md: "80%" },
+                borderColor: "#fff",
+                borderRadius: "10px",
+                color: "#fff",
+                transition: "all 0.3s ease-in-out",
+                "&:hover": {
+                  borderColor: "#000",
+                  color: "#000",
+                  transform: "scale(1.05)",
+                },
+              }}
+              onClick={() => window.open(link, "_blank")}>
+              View Project
+            </Button>
           </Box>
-          <Box
-            sx={{
-              fontSize: "14px",
-              textAlign: "justify",
-              paddingBottom: "15px",
-              px: "10px"
-            }}>
-            {description}
-          </Box>
-          <Button
-            variant="outlined"
-            sx={{
-              marginTop: "20px",
-              mx: "10px",
-              width: "100%",
-              borderColor: "#fff",
-              borderRadius: 10,
-              color: "#fff",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                borderColor: "#000",
-                color: "#000",
-                transform: "scale(1.05)",
-              },
-            }}
-            onClick={() => window.open(link, "_blank")}>
-            View Project
-          </Button>
         </Box>
       </Box>
     </Box>
@@ -134,12 +149,12 @@ const ProjectsList = () => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center", 
-        flexWrap: "wrap", 
-        gap: 4, 
-        padding: "40px",
-        minHeight: "100vh", 
+        justifyContent: "space-around",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: 4,
+        padding: { xs: "20px", md: "40px" },
+        minHeight: "100vh",
       }}>
       {projects.map((project, index) => (
         <ProjectCard key={index} {...project} />
