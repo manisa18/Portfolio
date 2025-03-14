@@ -28,7 +28,7 @@ const Home = () => {
           }}>
           <Box
             sx={{
-              fontSize: { xs: "1rem", md: "1.4rem" },
+              fontSize: "40px",
               fontWeight: "500",
               color: "#DC5F00",
               fontFamily: "'Pacifico', cursive",
